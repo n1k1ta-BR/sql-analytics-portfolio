@@ -1,0 +1,6 @@
+id,parent,notused,detail
+2,0,216,SCAN u
+5,0,0,CORRELATED SCALAR SUBQUERY 1
+10,5,216,SCAN o
+23,5,0,BLOOM FILTER ON oi (order_id=?)
+32,5,53,SEARCH oi USING AUTOMATIC COVERING INDEX (order_id=?)

@@ -1,0 +1,140 @@
+══════════════════════════════════════════════════════════════════════════════
+Задача 1
+✅ ПОЛНОЕ РЕШЕНИЕ — 100.0/100
+Семантика результата: OK
+Созданные индексы: ['status_date']
+Индексы orders: [('status_date', ['status', 'order_date'])]
+Индексы events: —
+Время (информативно, не основной критерий): до ~0.0043s, после ~0.0002s
+
+Исходный план:
+ id  parent  notused      detail
+  3       0      216 SCAN orders
+Новый план:
+ id  parent  notused                                                                                      detail
+  3       0       47 SEARCH orders USING COVERING INDEX status_date (status=? AND order_date>? AND order_date<?)
+══════════════════════════════════════════════════════════════════════════════
+Задача 2
+✅ ПОЛНОЕ РЕШЕНИЕ — 100.0/100
+Семантика результата: OK
+Созданные индексы: ['status_date_id']
+Индексы orders: [('status_date_id', ['status', 'order_date', 'user_id'])]
+Индексы events: —
+Время (информативно, не основной критерий): до ~0.0061s, после ~0.0025s
+
+Исходный план:
+ id  parent  notused                       detail
+  6       0      216                  SCAN orders
+ 14       0        0 USE TEMP B-TREE FOR GROUP BY
+Новый план:
+ id  parent  notused                                                                                         detail
+  6       0       47 SEARCH orders USING COVERING INDEX status_date_id (status=? AND order_date>? AND order_date<?)
+ 12       0        0                                                                   USE TEMP B-TREE FOR GROUP BY
+══════════════════════════════════════════════════════════════════════════════
+Задача 3
+✅ ПОЛНОЕ РЕШЕНИЕ — 100.0/100
+Семантика результата: OK
+Созданные индексы: —
+Индексы orders: —
+Индексы events: —
+Время (информативно, не основной критерий): до ~0.0759s, после ~0.0712s
+
+Исходный план:
+ id  parent  notused                                                detail
+  9       0      216                                                SCAN o
+ 19       0        0                       BLOOM FILTER ON oi (order_id=?)
+ 31       0       53 SEARCH oi USING AUTOMATIC COVERING INDEX (order_id=?)
+ 40       0        0                         BLOOM FILTER ON u (user_id=?)
+ 50       0       53   SEARCH u USING AUTOMATIC COVERING INDEX (user_id=?)
+ 57       0        0                          USE TEMP B-TREE FOR GROUP BY
+Новый план:
+ id  parent  notused                                                                    detail
+  2       0        0                                                             CO-ROUTINE os
+  8       2      216                                                          SCAN order_items
+ 10       2        0                                              USE TEMP B-TREE FOR GROUP BY
+ 59       0       82                                                                   SCAN os
+ 64       0        0                               BLOOM FILTER ON o (status=? AND order_id=?)
+ 82       0       53 SEARCH o USING AUTOMATIC PARTIAL COVERING INDEX (status=? AND order_id=?)
+ 96       0        0                                             BLOOM FILTER ON u (user_id=?)
+106       0       53                       SEARCH u USING AUTOMATIC COVERING INDEX (user_id=?)
+113       0        0                                              USE TEMP B-TREE FOR GROUP BY
+══════════════════════════════════════════════════════════════════════════════
+Задача 4
+✅ ПОЛНОЕ РЕШЕНИЕ — 100.0/100
+Семантика результата: OK
+Созданные индексы: ['event_purchase']
+Индексы orders: —
+Индексы events: [('event_purchase', ['user_id', 'event_type'])]
+Время/режим проверки: Исходный NOT EXISTS без индекса намеренно не исполнялся на полном наборе.
+Выполнение проверяемого запроса в режиме проверки: ~0.0213s
+
+Исходный план:
+ id  parent  notused                       detail
+  2       0      216                       SCAN u
+  5       0        0 CORRELATED SCALAR SUBQUERY 1
+  9       5      216                       SCAN e
+Новый план:
+ id  parent  notused                                                                    detail
+  2       0      216                                                                    SCAN u
+  5       0        0                                              CORRELATED SCALAR SUBQUERY 1
+  9       5       54 SEARCH e USING COVERING INDEX event_purchase (user_id=? AND event_type=?)
+══════════════════════════════════════════════════════════════════════════════
+Задача 5
+✅ ПОЛНОЕ РЕШЕНИЕ — 100.0/100
+Семантика результата: OK
+Созданные индексы: ['event_userID_']
+Индексы orders: —
+Индексы events: [('event_userID_', ['user_id', 'event_time'])]
+Время (информативно, не основной критерий): до ~0.0072s, после ~0.0003s
+
+Исходный план:
+ id  parent  notused                       detail
+  4       0      216                  SCAN events
+ 20       0        0 USE TEMP B-TREE FOR ORDER BY
+Новый план:
+ id  parent  notused                                              detail
+  5       0       62 SEARCH events USING INDEX event_userID_ (user_id=?)
+══════════════════════════════════════════════════════════════════════════════
+Задача 6
+✅ ПОЛНОЕ РЕШЕНИЕ — 100.0/100
+Семантика результата: OK
+Созданные индексы: —
+Индексы orders: —
+Индексы events: —
+Время/режим проверки: Семантика задачи 6 проверяется на уменьшенном наборе, чтобы медленный correlated EXISTS не подвешивал Colab.
+Выполнение проверяемого запроса в режиме проверки: ~0.3081s
+
+Исходный план:
+ id  parent  notused                                                detail
+  6       0      216                                                SCAN o
+ 16       0        0                         BLOOM FILTER ON u (user_id=?)
+ 26       0       53   SEARCH u USING AUTOMATIC COVERING INDEX (user_id=?)
+ 35       0        0                       BLOOM FILTER ON oi (order_id=?)
+ 44       0       53 SEARCH oi USING AUTOMATIC COVERING INDEX (order_id=?)
+ 60       0        0                          USE TEMP B-TREE FOR DISTINCT
+Новый план:
+ id  parent  notused                                                detail
+  2       0      216                                                SCAN u
+  5       0        0                          CORRELATED SCALAR SUBQUERY 1
+ 10       5      216                                                SCAN o
+ 23       5        0                       BLOOM FILTER ON oi (order_id=?)
+ 32       5       53 SEARCH oi USING AUTOMATIC COVERING INDEX (order_id=?)
+══════════════════════════════════════════════════════════════════════════════
+Задача 7
+✅ ПОЛНОЕ РЕШЕНИЕ — 100.0/100
+Индексный бюджет: 3/3
+Создано: ['event_time', 'event_type_time', 'orders_status_date']
+orders: [('orders_status_date', ['status', 'order_date'])]
+events: [('event_type_time', ['event_type', 'event_time']), ('event_time', ['user_id', 'event_time'])]
+
+orders_status_date:
+ id  parent  notused                                                                                             detail
+  3       0       47 SEARCH orders USING COVERING INDEX orders_status_date (status=? AND order_date>? AND order_date<?)
+
+latest_user_events:
+ id  parent  notused                                           detail
+  5       0       62 SEARCH events USING INDEX event_time (user_id=?)
+
+events_type_date:
+ id  parent  notused                                                                                              detail
+  3       0       47 SEARCH events USING COVERING INDEX event_type_time (event_type=? AND event_time>? AND event_time<?)

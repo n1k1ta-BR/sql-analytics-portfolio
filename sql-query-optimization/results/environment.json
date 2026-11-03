@@ -1,0 +1,8 @@
+{
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "seed": 7,
+  "timing_note": "Tasks 4 and 6 use the special validation modes of the source notebook. Timings are illustrative, not a production benchmark."
+}

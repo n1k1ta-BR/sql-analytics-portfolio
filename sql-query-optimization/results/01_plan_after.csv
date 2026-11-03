@@ -1,0 +1,2 @@
+id,parent,notused,detail
+3,0,47,SEARCH orders USING COVERING INDEX status_date (status=? AND order_date>? AND order_date<?)

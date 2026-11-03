@@ -1,0 +1,3 @@
+id,parent,notused,detail
+6,0,47,SEARCH orders USING COVERING INDEX status_date_id (status=? AND order_date>? AND order_date<?)
+12,0,0,USE TEMP B-TREE FOR GROUP BY

@@ -1,0 +1,2 @@
+id,parent,notused,detail
+3,0,47,SEARCH events USING COVERING INDEX event_type_time (event_type=? AND event_time>? AND event_time<?)

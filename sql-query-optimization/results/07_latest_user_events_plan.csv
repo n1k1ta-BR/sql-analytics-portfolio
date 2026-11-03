@@ -1,0 +1,2 @@
+id,parent,notused,detail
+5,0,62,SEARCH events USING INDEX event_time (user_id=?)

@@ -1,0 +1,239 @@
+table_name: international_sales
+main_dttm_col: transaction_date
+currency_code_column: null
+description: International sales transactions across multiple currencies for demonstrating
+  dynamic currency formatting features.
+default_endpoint: null
+offset: 0
+cache_timeout: null
+catalog: null
+schema: public
+sql: null
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra:
+  currency_code_column: currency_code
+normalize_columns: false
+always_filter_main_dttm: false
+folders: null
+uuid: e4b5c6d7-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+metrics:
+- metric_name: sum_quantity
+  verbose_name: Total Quantity
+  metric_type: null
+  expression: SUM(quantity)
+  description: Total quantity sold
+  d3format: null
+  currency: null
+  extra: null
+  warning_text: null
+- metric_name: sum_cost
+  verbose_name: Total Cost
+  metric_type: null
+  expression: SUM(cost)
+  description: Total cost
+  d3format: ',.2f'
+  currency: null
+  extra: null
+  warning_text: null
+- metric_name: sum_profit
+  verbose_name: Total Profit
+  metric_type: null
+  expression: SUM(profit)
+  description: Total profit
+  d3format: ',.2f'
+  currency: null
+  extra: null
+  warning_text: null
+- metric_name: sum_revenue
+  verbose_name: Total Revenue
+  metric_type: null
+  expression: SUM(revenue)
+  description: Total revenue
+  d3format: ',.2f'
+  currency: null
+  extra: null
+  warning_text: null
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  currency: null
+  extra: null
+  warning_text: null
+columns:
+- column_name: currency_code
+  verbose_name: Currency Code
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(10)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: Currency code for dynamic formatting (USD, EUR, GBP, JPY, CAD, AUD)
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: currency_symbol
+  verbose_name: Currency Symbol
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(10)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: Currency symbol for display
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: unit_price
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: NUMERIC(12,2)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: cost
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: NUMERIC(14,2)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: revenue
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: NUMERIC(14,2)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: profit
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: NUMERIC(14,2)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: product_name
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(100)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: product_category
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(50)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: country
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(50)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: region
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: VARCHAR(50)
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: transaction_date
+  verbose_name: null
+  is_dttm: true
+  is_active: true
+  type: DATE
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: quantity
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: id
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: INTEGER
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+version: 1.0.0
+database_uuid: a2dc77af-e654-49bb-b321-40f6b559a1ee

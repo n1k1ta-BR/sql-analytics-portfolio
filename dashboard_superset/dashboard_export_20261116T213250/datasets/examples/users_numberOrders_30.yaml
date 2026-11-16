@@ -1,0 +1,79 @@
+table_name: users_numberOrders
+main_dttm_col: null
+currency_code_column: null
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: null
+catalog: examples
+schema: public
+sql: "WITH user_orders AS (\n    SELECT\n        u.user_id,\n        COUNT(o.order_id)\
+  \ AS paid_orders\n    FROM public.\"USERS\" AS u\n    LEFT JOIN public.\"ORDERS\"\
+  \ AS o\n        ON u.user_id = o.user_id\n        AND o.status = 'paid'\n    GROUP\
+  \ BY u.user_id\n)\nSELECT\n    user_id,\n    paid_orders,\n    CASE\n        WHEN\
+  \ paid_orders = 0 THEN '0 \u0437\u0430\u043A\u0430\u0437\u043E\u0432'\n        WHEN\
+  \ paid_orders = 1 THEN '1 \u0437\u0430\u043A\u0430\u0437'\n        WHEN paid_orders\
+  \ BETWEEN 2 AND 3 THEN '2\u20133 \u0437\u0430\u043A\u0430\u0437\u0430'\n       \
+  \ ELSE '4+ \u0437\u0430\u043A\u0430\u0437\u043E\u0432'\n    END AS segment\nFROM\
+  \ user_orders"
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+normalize_columns: false
+always_filter_main_dttm: false
+folders: null
+uuid: cba11bbc-9864-4813-a400-0fe82440981e
+metrics:
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  currency: null
+  extra: null
+  warning_text: null
+columns:
+- column_name: paid_orders
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: LONGINTEGER
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: user_id
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: LONGINTEGER
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: segment
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: STRING
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+version: 1.0.0
+database_uuid: a2dc77af-e654-49bb-b321-40f6b559a1ee

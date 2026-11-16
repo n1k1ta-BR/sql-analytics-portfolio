@@ -1,0 +1,78 @@
+slice_name: "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u0435\u043B\u0438 \u043F\u0440\
+  \u043E\u043C\u043E\u043A\u043E\u0434\u043E\u0432"
+description: null
+certified_by: null
+certification_details: null
+viz_type: table
+params:
+  datasource: 34__table
+  viz_type: table
+  slice_id: 114
+  matrixify_enable: false
+  matrixify_mode_columns: disabled
+  matrixify_dimension_selection_mode_columns: members
+  matrixify_dimension_columns:
+    dimension: ''
+    values: []
+  matrixify_topn_value_columns: 10
+  matrixify_all_sort_by_columns: a_to_z
+  matrixify_topn_order_columns: true
+  matrixify_show_column_headers: true
+  matrixify_fit_columns_dynamically: true
+  matrixify_mode_rows: disabled
+  matrixify_dimension_selection_mode_rows: members
+  matrixify_dimension_rows:
+    dimension: ''
+    values: []
+  matrixify_topn_value_rows: 10
+  matrixify_all_sort_by_rows: a_to_z
+  matrixify_topn_order_rows: true
+  matrixify_show_row_labels: true
+  matrixify_row_height: 300
+  matrixify_charts_per_row: 3
+  matrixify_cell_title_template: ''
+  query_mode: raw
+  groupby: []
+  temporal_columns_lookup: {}
+  all_columns:
+  - promo_code
+  - paid_orders
+  - revenue
+  - avg_order_value
+  percent_metrics: []
+  adhoc_filters: []
+  order_by_cols:
+  - '["revenue", false]'
+  server_pagination: false
+  row_limit: 10000
+  table_timestamp_format: smart_date
+  include_search: false
+  allow_rearrange_columns: false
+  allow_render_html: true
+  column_config:
+    avg_order_value:
+      d3NumberFormat: ',.2f'
+      horizontalAlign: center
+      showCellBars: false
+    paid_orders:
+      horizontalAlign: center
+      showCellBars: false
+    promo_code:
+      horizontalAlign: center
+    revenue:
+      d3NumberFormat: ',.2f'
+      horizontalAlign: center
+  show_cell_bars: true
+  align_pn: false
+  color_pn: true
+  conditional_formatting: []
+  comparison_type: values
+  extra_form_data: {}
+  dashboards:
+  - 10
+query_context: '{"datasource":{"id":34,"type":"table"},"force":false,"queries":[{"filters":[],"extras":{"having":"","where":""},"applied_time_extras":{},"columns":["promo_code","paid_orders","revenue","avg_order_value"],"orderby":[["revenue",false]],"annotation_layers":[],"row_limit":10000,"series_limit":0,"group_others_when_limit_reached":false,"order_desc":true,"url_params":{},"custom_params":{},"custom_form_data":{},"post_processing":[],"time_offsets":[]}],"form_data":{"datasource":"34__table","viz_type":"table","slice_id":114,"matrixify_enable":false,"matrixify_mode_columns":"disabled","matrixify_dimension_selection_mode_columns":"members","matrixify_dimension_columns":{"dimension":"","values":[]},"matrixify_topn_value_columns":10,"matrixify_all_sort_by_columns":"a_to_z","matrixify_topn_order_columns":true,"matrixify_show_column_headers":true,"matrixify_fit_columns_dynamically":true,"matrixify_mode_rows":"disabled","matrixify_dimension_selection_mode_rows":"members","matrixify_dimension_rows":{"dimension":"","values":[]},"matrixify_topn_value_rows":10,"matrixify_all_sort_by_rows":"a_to_z","matrixify_topn_order_rows":true,"matrixify_show_row_labels":true,"matrixify_row_height":300,"matrixify_charts_per_row":3,"matrixify_cell_title_template":"","query_mode":"raw","groupby":[],"temporal_columns_lookup":{},"all_columns":["promo_code","paid_orders","revenue","avg_order_value"],"percent_metrics":[],"adhoc_filters":[],"order_by_cols":["[\"revenue\",
+  false]"],"server_pagination":false,"row_limit":10000,"table_timestamp_format":"smart_date","include_search":false,"allow_rearrange_columns":false,"allow_render_html":true,"column_config":{"avg_order_value":{"d3NumberFormat":",.2f","horizontalAlign":"center","showCellBars":false},"paid_orders":{"horizontalAlign":"center","showCellBars":false},"promo_code":{"horizontalAlign":"center"},"revenue":{"d3NumberFormat":",.2f","horizontalAlign":"center"}},"show_cell_bars":true,"align_pn":false,"color_pn":true,"conditional_formatting":[],"comparison_type":"values","extra_form_data":{},"dashboards":[10],"force":false,"result_format":"json","result_type":"full","include_time":false},"result_format":"json","result_type":"full"}'
+cache_timeout: null
+uuid: 8c401f55-ba80-478e-930a-6c20faa49901
+version: 1.0.0
+dataset_uuid: d2518371-8b14-4e5c-98fa-618506f45b26

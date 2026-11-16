@@ -1,0 +1,116 @@
+slice_name: "\u0412\u044B\u0440\u0443\u0447\u043A\u0430"
+description: null
+certified_by: null
+certification_details: null
+viz_type: big_number_total
+params:
+  datasource: 27__table
+  viz_type: big_number_total
+  slice_id: 105
+  matrixify_enable: false
+  matrixify_mode_columns: disabled
+  matrixify_dimension_selection_mode_columns: members
+  matrixify_dimension_columns:
+    dimension: ''
+    values: []
+  matrixify_topn_value_columns: 10
+  matrixify_all_sort_by_columns: a_to_z
+  matrixify_topn_order_columns: true
+  matrixify_show_column_headers: true
+  matrixify_fit_columns_dynamically: true
+  matrixify_mode_rows: disabled
+  matrixify_dimension_selection_mode_rows: members
+  matrixify_dimension_rows:
+    dimension: ''
+    values: []
+  matrixify_topn_value_rows: 10
+  matrixify_all_sort_by_rows: a_to_z
+  matrixify_topn_order_rows: true
+  matrixify_show_row_labels: true
+  matrixify_row_height: 300
+  matrixify_charts_per_row: 4
+  matrixify_cell_title_template: ''
+  metric:
+    aggregate: SUM
+    column:
+      advanced_data_type: null
+      certification_details: null
+      certified_by: null
+      column_name: order_revenue
+      description: null
+      expression: null
+      filterable: true
+      groupby: true
+      id: 738
+      is_certified: false
+      is_dttm: false
+      python_date_format: null
+      type: column
+      type_generic: 0
+      uuid: 55a3c610-650d-4f79-8171-dc4cc159807b
+      verbose_name: null
+      warning_markdown: null
+    datasourceWarning: false
+    expressionType: SIMPLE
+    hasCustomLabel: false
+    label: SUM(order_revenue)
+    optionName: metric_jgjc1nfenpo_6hi1c08za3c
+    sqlExpression: null
+  adhoc_filters:
+  - clause: WHERE
+    comparator: No filter
+    expressionType: SIMPLE
+    operator: TEMPORAL_RANGE
+    subject: order_date
+  header_font_size: 0.4
+  subtitle: "\u0440\u0443\u0431."
+  subtitle_font_size: 0.15
+  show_metric_name: false
+  y_axis_format: .3s
+  time_format: smart_date
+  force_timestamp_formatting: false
+  conditional_formatting: []
+  extra_form_data: {}
+  dashboards:
+  - 10
+query_context: "{\"datasource\":{\"id\":27,\"type\":\"table\"},\"force\":false,\"\
+  queries\":[{\"filters\":[{\"col\":\"order_date\",\"op\":\"TEMPORAL_RANGE\",\"val\"\
+  :\"No filter\"}],\"extras\":{\"having\":\"\",\"where\":\"\"},\"applied_time_extras\"\
+  :{},\"columns\":[],\"metrics\":[{\"aggregate\":\"SUM\",\"column\":{\"advanced_data_type\"\
+  :null,\"certification_details\":null,\"certified_by\":null,\"column_name\":\"order_revenue\"\
+  ,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"\
+  id\":738,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\":null,\"\
+  type\":\"column\",\"type_generic\":0,\"uuid\":\"55a3c610-650d-4f79-8171-dc4cc159807b\"\
+  ,\"verbose_name\":null,\"warning_markdown\":null},\"datasourceWarning\":false,\"\
+  expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"label\":\"SUM(order_revenue)\"\
+  ,\"optionName\":\"metric_jgjc1nfenpo_6hi1c08za3c\",\"sqlExpression\":null}],\"annotation_layers\"\
+  :[],\"series_limit\":0,\"group_others_when_limit_reached\":false,\"order_desc\"\
+  :true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"form_data\"\
+  :{\"datasource\":\"27__table\",\"viz_type\":\"big_number_total\",\"slice_id\":105,\"\
+  matrixify_enable\":false,\"matrixify_mode_columns\":\"disabled\",\"matrixify_dimension_selection_mode_columns\"\
+  :\"members\",\"matrixify_dimension_columns\":{\"dimension\":\"\",\"values\":[]},\"\
+  matrixify_topn_value_columns\":10,\"matrixify_all_sort_by_columns\":\"a_to_z\",\"\
+  matrixify_topn_order_columns\":true,\"matrixify_show_column_headers\":true,\"matrixify_fit_columns_dynamically\"\
+  :true,\"matrixify_mode_rows\":\"disabled\",\"matrixify_dimension_selection_mode_rows\"\
+  :\"members\",\"matrixify_dimension_rows\":{\"dimension\":\"\",\"values\":[]},\"\
+  matrixify_topn_value_rows\":10,\"matrixify_all_sort_by_rows\":\"a_to_z\",\"matrixify_topn_order_rows\"\
+  :true,\"matrixify_show_row_labels\":true,\"matrixify_row_height\":300,\"matrixify_charts_per_row\"\
+  :4,\"matrixify_cell_title_template\":\"\",\"metric\":{\"aggregate\":\"SUM\",\"column\"\
+  :{\"advanced_data_type\":null,\"certification_details\":null,\"certified_by\":null,\"\
+  column_name\":\"order_revenue\",\"description\":null,\"expression\":null,\"filterable\"\
+  :true,\"groupby\":true,\"id\":738,\"is_certified\":false,\"is_dttm\":false,\"python_date_format\"\
+  :null,\"type\":\"column\",\"type_generic\":0,\"uuid\":\"55a3c610-650d-4f79-8171-dc4cc159807b\"\
+  ,\"verbose_name\":null,\"warning_markdown\":null},\"datasourceWarning\":false,\"\
+  expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"label\":\"SUM(order_revenue)\"\
+  ,\"optionName\":\"metric_jgjc1nfenpo_6hi1c08za3c\",\"sqlExpression\":null},\"adhoc_filters\"\
+  :[{\"clause\":\"WHERE\",\"comparator\":\"No filter\",\"expressionType\":\"SIMPLE\"\
+  ,\"operator\":\"TEMPORAL_RANGE\",\"subject\":\"order_date\"}],\"header_font_size\"\
+  :0.4,\"subtitle\":\"\u0440\u0443\u0431.\",\"subtitle_font_size\":0.15,\"show_metric_name\"\
+  :false,\"y_axis_format\":\".3s\",\"time_format\":\"smart_date\",\"force_timestamp_formatting\"\
+  :false,\"conditional_formatting\":[],\"extra_form_data\":{},\"dashboards\":[10],\"\
+  force\":false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\"\
+  :\"json\",\"result_type\":\"full\"}"
+cache_timeout: null
+uuid: 84350e27-eea9-4283-beed-408a319f2bae
+version: 1.0.0
+dataset_uuid: 623478ac-1f6b-4cc7-a686-a5bc3978c6c8

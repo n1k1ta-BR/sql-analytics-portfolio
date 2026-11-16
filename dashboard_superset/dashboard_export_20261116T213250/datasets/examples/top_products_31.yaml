@@ -1,0 +1,121 @@
+table_name: top_products
+main_dttm_col: null
+currency_code_column: null
+description: null
+default_endpoint: null
+offset: 0
+cache_timeout: null
+catalog: examples
+schema: public
+sql: "WITH product_revenue AS (\n    SELECT\n        TO_CHAR(o.order_date::date, 'YYYY-MM')\
+  \ AS month,\n        p.category,\n        p.product_id,\n        SUM(oi.quantity\
+  \ * oi.price) AS revenue\n    FROM public.\"ORDERS\" AS o\n    JOIN public.\"ORDER_ITEMS\"\
+  \ AS oi\n        ON o.order_id = oi.order_id\n    JOIN public.\"PRODUCTS\" AS p\n\
+  \        ON oi.product_id = p.product_id\n    WHERE o.status = 'paid'\n    GROUP\
+  \ BY\n        TO_CHAR(o.order_date::date, 'YYYY-MM'),\n        p.category,\n   \
+  \     p.product_id\n),\nranked AS (\n    SELECT\n        *,\n        ROW_NUMBER()\
+  \ OVER (\n            PARTITION BY month, category\n            ORDER BY revenue\
+  \ DESC, product_id ASC\n        ) AS product_rank\n    FROM product_revenue\n)\n\
+  SELECT\n    month,\n    category,\n    product_id,\n    '\u0422\u043E\u0432\u0430\
+  \u0440 ' || product_id::text AS product,\n    revenue,\n    product_rank\nFROM ranked\n\
+  WHERE product_rank <= 3"
+params: null
+template_params: null
+filter_select_enabled: true
+fetch_values_predicate: null
+extra: null
+normalize_columns: false
+always_filter_main_dttm: false
+folders: null
+uuid: ca2b8b8d-023c-4c4b-88b4-8a0326be4fd6
+metrics:
+- metric_name: count
+  verbose_name: COUNT(*)
+  metric_type: count
+  expression: COUNT(*)
+  description: null
+  d3format: null
+  currency: null
+  extra: null
+  warning_text: null
+columns:
+- column_name: revenue
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: FLOAT
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: product_rank
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: LONGINTEGER
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: product_id
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: LONGINTEGER
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: category
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: STRING
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: product
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: STRING
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+- column_name: month
+  verbose_name: null
+  is_dttm: false
+  is_active: true
+  type: STRING
+  advanced_data_type: null
+  groupby: true
+  filterable: true
+  expression: null
+  description: null
+  python_date_format: null
+  datetime_format: null
+  extra: null
+version: 1.0.0
+database_uuid: a2dc77af-e654-49bb-b321-40f6b559a1ee
